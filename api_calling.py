@@ -1,8 +1,7 @@
-from google import genai
-from dotenv import load_dotenv
-import os ,io
+import streamlit as st
+import google.generativeai as genai
+import io
 from gtts import gTTS
-
 
 
 
@@ -10,11 +9,12 @@ from gtts import gTTS
 #loading the environment variable 
 load_dotenv() 
 
-my_api_key = os.getenv("GEMINI_API_KEY")
+api_key = st.secrets["GEMINI_API_KEY"]
 
 #initializing a client 
-api_key = st.secrets["GEMINI_API_KEY"]
-client = genai.Client(api_key=my_api_key)
+genai.configure(api_key=api_key)
+
+model = genai.GenerativeModel("gemini-1.5-flash")
 
 
 
