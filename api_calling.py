@@ -1,4 +1,4 @@
-from google import genai
+import google.generativeai as genai
 from dotenv import load_dotenv
 import os ,io
 from gtts import gTTS
@@ -13,7 +13,8 @@ load_dotenv()
 my_api_key = os.getenv("GEMINI_API_KEY")
 
 #initializing a client 
-client = genai.Client(api_key= my_api_key)
+genai.configure(api_key=my_api_key)
+model = genai.GenerativeModel("gemini-1.5-flash")
 
 
 
