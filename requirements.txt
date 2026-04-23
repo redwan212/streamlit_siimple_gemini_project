@@ -1,5 +1,0 @@
-pillow
-requests
-svgpathtools
-numpy
-opencv-python
